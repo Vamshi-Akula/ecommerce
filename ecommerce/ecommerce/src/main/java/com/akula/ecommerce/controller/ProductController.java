@@ -47,6 +47,7 @@ public class ProductController {
             }
         }
 
+        @GetMapping("/product/{productId}/image")
         public ResponseEntity<byte[]> getImageByProductID(@PathVariable int productId){
             Product product = service.getProductById(productId);
             byte[] imageFile = product.getImageDate();
@@ -82,5 +83,11 @@ public class ProductController {
             else
                 return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
 
+        }
+
+        @GetMapping("/products/search")
+        public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword){
+            List<Product> products = service.searchProducts(keyword);
+            return new ResponseEntity<>(products, HttpStatus.OK);
         }
 }

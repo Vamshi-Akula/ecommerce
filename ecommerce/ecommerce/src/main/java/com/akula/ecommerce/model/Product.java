@@ -42,9 +42,6 @@ public class Product {
     public void setImageName(String originalFilename) {
     }
 
-//    public void setImageType(String contentType) {
-//    }
-
     public byte[] getImageDate() {
         return imageDate;
     }
